@@ -26,7 +26,6 @@ static void read_line(const char *prompt, char *buffer, size_t size) {
 
         line_end = strpbrk(buffer, "\r\n");
         if (line_end != NULL) {
-            /* Windows terminals may leave a line-feed after a carriage return. */
             if (*line_end == '\r' && line_end[1] == '\0') {
                 int next = getchar();
                 if (next != '\n' && next != EOF) {
